@@ -1,0 +1,10 @@
+# Simulation files
+*.vcd
+*.out
+a.out
+
+# GTKWave files
+*.gtkw
+
+# Temporary files
+*.log
