@@ -109,6 +109,41 @@ alu/
  └── testbench/
      └── alu_tb.v
 ```
+---
+## 5️⃣ Register File
+
+A small memory unit used to store intermediate values in a processor.
+
+### Features
+
+* 4 registers (each 4-bit)
+* 2 read ports
+* 1 write port
+* Synchronous write (clock-based)
+* Asynchronous read
+
+### Inputs
+
+* clk
+* write enable (we)
+* write address
+* read addresses
+* write data
+
+### Outputs
+
+* read_data1
+* read_data2
+
+### Directory
+
+```
+register_file/
+ ├── rtl/
+ │   └── register_file.v
+ └── testbench/
+     └── regfile_tb.v
+```
 
 ---
 
