@@ -144,6 +144,36 @@ register_file/
  └── testbench/
      └── regfile_tb.v
 ```
+## 6️⃣ Datapath
+
+The datapath connects the Register File and ALU to enable computation and data storage.
+
+### Data Flow
+
+```
+Register File → ALU → Register File
+```
+
+### Features
+
+* Reads two operands from registers
+* Performs operation using ALU
+* Writes result back to register file
+
+### Components Used
+
+* Register File
+* 4-bit ALU
+
+### Directory
+
+```
+datapath/
+ ├── rtl/
+ │   └── datapath.v
+ └── testbench/
+     └── datapath_tb.v
+```
 
 ---
 
@@ -187,7 +217,6 @@ The repository will expand toward building a **simple processor datapath**.
 
 Upcoming modules:
 
-* Register File
 * Program Counter
 * Control Unit
 * Simple CPU
