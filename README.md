@@ -144,6 +144,7 @@ register_file/
  └── testbench/
      └── regfile_tb.v
 ```
+---
 ## 6️⃣ Datapath
 
 The datapath connects the Register File and ALU to enable computation and data storage.
