@@ -1,7 +1,8 @@
 # Verilog Digital Design Library
 
-This repository contains my **VLSI learning projects implemented in Verilog HDL**.
-Each module is designed, simulated, verified using testbenches, and organized in a modular RTL structure.
+This repository contains my **VLSI digital design projects implemented in Verilog HDL**, progressing from basic combinational circuits to a **system-level datapath and CPU architecture**.
+
+Each module is designed, simulated, and verified using testbenches with a structured RTL approach.
 
 ---
 
@@ -26,8 +27,6 @@ Adds two 1-bit numbers.
 SUM   = A XOR B
 CARRY = A AND B
 ```
-
-Directory:
 
 ```
 half_adder/
@@ -54,9 +53,7 @@ SUM
 Cout
 ```
 
-Implementation uses **two half adders and an OR gate**.
-
-Directory:
+Implemented using **two half adders + OR gate**.
 
 ```
 full_adder/
@@ -70,11 +67,10 @@ full_adder/
 
 ## 3️⃣ 4-bit Ripple Carry Adder
 
-Constructed using **four full adders** connected in series.
+Constructed using four full adders connected in series.
 
-Carry propagates from the least significant bit to the most significant bit.
-
-Directory:
+* Carry propagates from LSB → MSB
+* Demonstrates delay propagation in adders
 
 ```
 ripple_carry_adder/
@@ -90,8 +86,6 @@ ripple_carry_adder/
 
 Performs arithmetic and logical operations.
 
-Supported operations:
-
 | Opcode | Operation |
 | ------ | --------- |
 | 000    | ADD       |
@@ -100,8 +94,6 @@ Supported operations:
 | 011    | OR        |
 | 100    | XOR       |
 
-Directory:
-
 ```
 alu/
  ├── rtl/
@@ -109,7 +101,9 @@ alu/
  └── testbench/
      └── alu_tb.v
 ```
+
 ---
+
 ## 5️⃣ Register File
 
 A small memory unit used to store intermediate values in a processor.
@@ -119,23 +113,8 @@ A small memory unit used to store intermediate values in a processor.
 * 4 registers (each 4-bit)
 * 2 read ports
 * 1 write port
-* Synchronous write (clock-based)
+* Synchronous write
 * Asynchronous read
-
-### Inputs
-
-* clk
-* write enable (we)
-* write address
-* read addresses
-* write data
-
-### Outputs
-
-* read_data1
-* read_data2
-
-### Directory
 
 ```
 register_file/
@@ -144,10 +123,12 @@ register_file/
  └── testbench/
      └── regfile_tb.v
 ```
+
 ---
+
 ## 6️⃣ Datapath
 
-The datapath connects the Register File and ALU to enable computation and data storage.
+Connects the Register File and ALU to enable computation and storage.
 
 ### Data Flow
 
@@ -157,16 +138,9 @@ Register File → ALU → Register File
 
 ### Features
 
-* Reads two operands from registers
-* Performs operation using ALU
-* Writes result back to register file
-
-### Components Used
-
-* Register File
-* 4-bit ALU
-
-### Directory
+* Reads operands from registers
+* Performs ALU operation
+* Writes result back
 
 ```
 datapath/
@@ -178,9 +152,34 @@ datapath/
 
 ---
 
-# Simulation Flow
+## 7️⃣ Program Counter
 
-Example simulation command:
+A sequential circuit that holds the address of the current instruction.
+
+### Features
+
+* Increments every clock cycle
+* Asynchronous reset
+* 4-bit counter
+
+### Behavior
+
+```
+if reset → PC = 0
+else → PC = PC + 1
+```
+
+```
+program_counter/
+ ├── rtl/
+ │   └── pc.v
+ └── testbench/
+     └── pc_tb.v
+```
+
+---
+
+# Simulation Flow
 
 ```
 iverilog <rtl_files> <testbench_file>
@@ -207,6 +206,9 @@ verilog-digital-design
 ├── full_adder
 ├── ripple_carry_adder
 ├── alu
+├── register_file
+├── datapath
+├── program_counter
 └── README.md
 ```
 
@@ -214,10 +216,21 @@ verilog-digital-design
 
 # Future Work
 
-The repository will expand toward building a **simple processor datapath**.
+This repository is progressing toward building a **simple CPU architecture**.
 
 Upcoming modules:
 
-* Program Counter
+* Instruction Memory
 * Control Unit
 * Simple CPU
+
+---
+
+# Key Learning Outcome
+
+This project demonstrates:
+
+* RTL design using Verilog
+* Modular hardware design approach
+* Datapath and control flow understanding
+* Foundations of CPU architecture
