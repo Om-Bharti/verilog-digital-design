@@ -178,6 +178,41 @@ program_counter/
 ```
 
 ---
+## 8️⃣ Instruction Memory
+
+Stores instructions to be executed by the CPU.
+
+### Features
+
+* ROM-based design (preloaded instructions)
+* 16 instruction locations
+* 8-bit instruction width
+
+### Instruction Format
+
+```
+[7:5] Opcode
+[4:3] Source Register 1
+[2:1] Source Register 2
+[0]   Unused / Future use
+```
+
+### Function
+
+* Takes address from Program Counter
+* Outputs corresponding instruction
+
+### Directory
+
+```
+instruction_memory/
+ ├── rtl/
+ │   └── instruction_memory.v
+ └── testbench/
+     └── imem_tb.v
+```
+
+---
 
 # Simulation Flow
 
@@ -209,6 +244,7 @@ verilog-digital-design
 ├── register_file
 ├── datapath
 ├── program_counter
+├── instruction_memory
 └── README.md
 ```
 
@@ -220,7 +256,6 @@ This repository is progressing toward building a **simple CPU architecture**.
 
 Upcoming modules:
 
-* Instruction Memory
 * Control Unit
 * Simple CPU
 
