@@ -213,6 +213,36 @@ instruction_memory/
 ```
 
 ---
+## 9️⃣ Control Unit
+
+Decodes instructions and generates control signals for the datapath.
+
+### Function
+
+Converts instruction into:
+
+* Opcode
+* Register addresses
+* Write enable signal
+
+### Instruction Breakdown
+
+```
+[7:5] Opcode
+[4:3] Source Register 1
+[2:1] Source Register 2
+```
+
+### Directory
+
+```
+control_unit/
+ ├── rtl/
+ │   └── control_unit.v
+ └── testbench/
+     └── cu_tb.v
+```
+---
 
 # Simulation Flow
 
@@ -245,6 +275,7 @@ verilog-digital-design
 ├── datapath
 ├── program_counter
 ├── instruction_memory
+├── control_unit
 └── README.md
 ```
 
@@ -256,7 +287,6 @@ This repository is progressing toward building a **simple CPU architecture**.
 
 Upcoming modules:
 
-* Control Unit
 * Simple CPU
 
 ---
