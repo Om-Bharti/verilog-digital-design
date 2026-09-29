@@ -755,6 +755,17 @@ The CPU testbench verifies:
 - Program counter progression
 
 ---
+## Simulation Waveforms
+
+GTKWave screenshots from the module-level and CPU-level simulations are provided in the `screenshots/` directory.
+
+The screenshots provide visual evidence of signal transitions and functional behavior across the individual modules and the integrated CPU.
+
+### CPU Waveform
+
+![CPU Waveform](screenshots/cpu_waveform.png)
+
+---
 
 ## 14. Simulation
 
