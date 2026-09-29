@@ -8,3 +8,5 @@ a.out
 
 # Temporary files
 *.log
+# Simulation executables
+*_sim

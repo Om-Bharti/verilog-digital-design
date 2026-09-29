@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module rca_tb;
 
 reg [3:0] a;
